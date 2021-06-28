@@ -19,7 +19,6 @@ def signup ():
 
 @app.route ('/shop/<id>/<num_buyed>')
 def shop (id,num_buyed):
-    print(id)
     user= db.session.query(User).filter_by(id=int(id)).first()
     todos_los_productos = db.session.query(Product).all()
     return render_template("shop.html",lista_de_productos=todos_los_productos, user_obj=user,num_buyed=num_buyed)
